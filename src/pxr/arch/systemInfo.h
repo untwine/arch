@@ -9,16 +9,12 @@
 #define PXR_ARCH_SYSTEM_INFO_H
 
 /// \file arch/systemInfo.h
-/// \ingroup group_arch_SystemFunctions
 /// Provide architecture-specific system information.
 
 #include "./api.h"
 #include <string>
 
 namespace pxr {
-
-/// \addtogroup group_arch_SystemFunctions
-///@{
 
 /// Return current working directory as a string.
 ARCH_API
@@ -31,8 +27,6 @@ std::string ArchGetExecutablePath();
 /// Return the system's memory page size.  Safe to assume power-of-two.
 ARCH_API
 int ArchGetPageSize();
-
-///@}
 
 }  // namespace pxr
 

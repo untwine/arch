@@ -1,0 +1,11 @@
+/*!
+\mainpage Home
+
+Abstract architecture-dependent logic.
+
+Read the [documentation](../index.html), or explore [the API](\ref pxr).
+
+<HR>
+
+Copyright 2024, Pixar, modified by Jeremy Retailleau
+*/

@@ -9,7 +9,6 @@
 #define PXR_ARCH_MALLOC_HOOK_H
 
 /// \file arch/mallocHook.h
-/// \ingroup group_arch_Memory
 /// Routines for controlling malloc behavior.
 
 #include "./api.h"
@@ -26,7 +25,6 @@ namespace pxr {
 /// special behavior that depends on this library may use this function to
 /// determine if it is the active allocator.
 ///
-/// \ingroup group_arch_Memory
 ARCH_API bool ArchIsPtmallocActive();
 
 /// Return true if the C++ STL allocator was requested to be turned off.
@@ -35,11 +33,9 @@ ARCH_API bool ArchIsPtmallocActive();
 /// GLIBCXX_FORCE_NEW, but it might differ (or not even be possible) for other
 /// platforms.
 ///
-/// \ingroup group_arch_Memory
 ARCH_API bool ArchIsStlAllocatorOff();
 
 /// \class ArchMallocHook
-/// \ingroup group_arch_Memory
 ///
 /// Override default malloc() functionality.
 ///

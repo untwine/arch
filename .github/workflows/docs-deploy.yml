@@ -1,0 +1,59 @@
+name: docs-deploy
+
+on:
+  push:
+    branches: [ main ]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Create Build Environment
+        working-directory: ${{runner.temp}}
+        run: |
+          brew install doxygen
+          python -m pip install --upgrade pip
+          python -m pip install -r ${{github.workspace}}/doc/requirements.txt
+          npm install https://github.com/jothepro/doxygen-awesome-css#v2.3.3
+          cmake -E make_directory ${{github.workspace}}/build
+
+      - name: Build documentation
+        working-directory: ${{github.workspace}}/build
+        run: |
+          cmake \
+            -D "BUILD_TESTS=OFF" \
+            -D "DOXYGEN_HTML_EXTRA_STYLESHEET=${{runner.temp}}/node_modules/@jothepro/doxygen-awesome-css/doxygen-awesome.css" ..
+          cmake --build . --target documentation
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ${{github.workspace}}/build/doc/doc/pxr/arch
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    runs-on: macos-latest
+    needs: build
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

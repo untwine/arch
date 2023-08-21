@@ -10,7 +10,6 @@
 #define PXR_ARCH_ALIGN_H
 
 /// \file arch/align.h
-/// \ingroup group_arch_Memory
 /// Provide architecture-specific memory-alignment information.
 
 #if !defined(__cplusplus)
@@ -23,9 +22,6 @@
 #include <cstdint>
 
 namespace pxr {
-
-/// \addtogroup group_arch_Memory
-///@{
 
 /// Return suitably aligned memory size.
 ///
@@ -77,8 +73,6 @@ ArchAlignedAlloc(size_t alignment, size_t size);
 ARCH_API
 void
 ArchAlignedFree(void* ptr);
-
-///@}
 
 }  // namespace pxr
 

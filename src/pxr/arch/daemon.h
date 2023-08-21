@@ -9,7 +9,6 @@
 #define PXR_ARCH_DAEMON_H
 
 /// \file arch/daemon.h
-/// \ingroup group_arch_Multithreading
 /// Create background or daemon processes.
 
 #include "./api.h"
@@ -42,8 +41,7 @@ namespace pxr {
 /// \return -1 on error and \c errno will be set to an appropriate
 /// value.  Returns 0 on success.
 ///
-/// \ingroup group_arch_Multithreading
-ARCH_API 
+ARCH_API
 int ArchCloseAllFiles(int nExcept, const int* exceptFds);
 
 }  // namespace pxr

@@ -9,7 +9,6 @@
 #define PXR_ARCH_VIRTUAL_MEMORY_H
 
 /// \file arch/virtualMemory.h
-/// \ingroup group_arch_SystemFunctions
 /// Architecture dependent routines for virtual memory.
 
 #include "./api.h"

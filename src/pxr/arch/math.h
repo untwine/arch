@@ -9,7 +9,6 @@
 #define PXR_ARCH_MATH_H
 
 /// \file arch/math.h
-/// \ingroup group_arch_Math
 /// Architecture-specific math function calls.
 
 #include "./defines.h"
@@ -25,9 +24,6 @@
 #endif
 
 namespace pxr {
-
-/// \addtogroup group_arch_Math
-///@{
 
 #if defined (ARCH_CPU_INTEL) || defined (ARCH_CPU_ARM) || defined (doxygen)
 
@@ -133,9 +129,6 @@ ArchCountTrailingZeros(uint64_t x)
     return c;
 #endif
 }
-
-
-///@}
 
 }  // namespace pxr
 

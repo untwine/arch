@@ -9,7 +9,6 @@
 #define PXR_ARCH_THREADS_H
 
 /// \file arch/threads.h
-/// \ingroup group_arch_Multithreading
 /// Architecture-specific thread function calls.
 
 #include "./api.h"
@@ -26,7 +25,6 @@
 namespace pxr {
 
 /// Return true if the calling thread is the main thread, false otherwise.
-/// \ingroup group_arch_Multithreading
 ARCH_API bool ArchIsMainThread();
 
 /// Return the std::thread_id for the thread arch considers to be the "main"

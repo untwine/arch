@@ -27,7 +27,6 @@ namespace pxr {
 /// \c prettyFunction is __ARCH_PRETTY_FUNCTION__, and attempts to
 /// reconstruct a well formatted function name.
 ///
-/// \ingroup group_arch_Diagnostic
 ARCH_API
 std::string ArchGetPrettierFunctionName(const std::string &function,
                                         const std::string &prettyFunction);

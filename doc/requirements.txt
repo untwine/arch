@@ -1,0 +1,4 @@
+Sphinx==7.4.7
+sphinx-cmake==0.2.1
+sphinx-rtd-theme==2.0.0
+sphinxcontrib-doxylink==1.12.3

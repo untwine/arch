@@ -6,19 +6,13 @@
 // Modified by Jeremy Retailleau.
 
 #include <pxr/arch/errno.h>
-#include <pxr/arch/error.h>
-
-#include <cstdio>
+#include <gtest/gtest.h>
 
 using namespace pxr;
 
-int main(int /*argc*/, char** /*argv*/)
+TEST(ErrnoTest, ErrorMessages)
 {
     for (int i = -1; i < 10; i++) {
-        const std::string msg = ArchStrerror(i);
-        ARCH_AXIOM(!msg.empty());
-        printf("%d -> '%s'\n", i, msg.c_str());
+        ASSERT_NE(ArchStrerror(i), "");
     }
-
-    return 0;
 }

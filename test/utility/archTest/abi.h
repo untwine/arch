@@ -5,8 +5,8 @@
 //
 // Modified by Jeremy Retailleau.
 
-#ifndef PXR_ARCH_TEST_ARCH_ABI_H
-#define PXR_ARCH_TEST_ARCH_ABI_H
+#ifndef PXR_ARCH_TEST_ABI_H
+#define PXR_ARCH_TEST_ABI_H
 
 #include <pxr/arch/api.h>
 
@@ -29,4 +29,4 @@ struct ArchAbiDerived : public ArchAbiBase1, public ArchAbiBase2 {
 
 }  // namespace pxr
 
-#endif // PXR_ARCH_TEST_ARCH_ABI_H
+#endif  // PXR_ARCH_TEST_ABI_H

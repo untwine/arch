@@ -5,8 +5,8 @@
 //
 // Modified by Jeremy Retailleau.
 
-#ifndef PXR_ARCH_TEST_ARCH_UTIL_H
-#define PXR_ARCH_TEST_ARCH_UTIL_H
+#ifndef PXR_ARCH_TEST_UTIL_H
+#define PXR_ARCH_TEST_UTIL_H
 
 #include <pxr/arch/api.h>
 
@@ -28,4 +28,4 @@ ARCH_API void ArchTestCrashArgParse(int argc, char** argv);
 
 }  // namespace pxr
 
-#endif // PXR_ARCH_TEST_ARCH_UTIL_H
+#endif  // PXR_ARCH_TEST_UTIL_H

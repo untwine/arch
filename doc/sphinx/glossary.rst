@@ -22,6 +22,11 @@ Glossary
 
         .. seealso:: https://doxygen.nl/
 
+    GTest
+        Google Test is a testing and mocking framework for C++.
+
+        .. seealso:: http://google.github.io/googletest/
+
     reStructuredText
         Lightweight markup language.
 

@@ -15,7 +15,9 @@ env:
   CMAKE_BUILD_TYPE: Release
   CMAKE_GENERATOR: Visual Studio 17 2022
   CMAKE_GENERATOR_PLATFORM: x64
+  CMAKE_TOOLCHAIN_FILE: C:/vcpkg/scripts/buildsystems/vcpkg.cmake
   CTEST_OUTPUT_ON_FAILURE: True
+  VCPKG_DEFAULT_TRIPLET: x64-windows
 
   # Avoid the just-in-time debugger where possible when running tests.
   ARCH_AVOID_JIT: True
@@ -28,7 +30,9 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Create Build Environment
-        run: cmake -E make_directory ${{github.workspace}}/build
+        run: |
+          vcpkg install gtest
+          cmake -E make_directory ${{github.workspace}}/build
 
       - name: Configure
         working-directory: ${{github.workspace}}/build

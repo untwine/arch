@@ -7,7 +7,8 @@
 
 #define _CRT_SECURE_NO_WARNINGS
 
-#include "./testArchUtil.h"
+#include "./util.h"
+
 #include <pxr/arch/debugger.h>
 #include <pxr/arch/defines.h>
 #include <pxr/arch/error.h>

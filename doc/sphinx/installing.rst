@@ -92,6 +92,8 @@ Then build the documentation as follows::
 Running tests
 =============
 
+Ensure that :term:`GTest` is installed.
+
 Once the library and all tests are built, you can run the tests using
 :term:`Ctest` within the build folder as follows::
 
@@ -100,7 +102,8 @@ Once the library and all tests are built, you can run the tests using
 You can increase the verbosity and filter in one or several tests as follows::
 
     ctest -VV
-    ctest -R testArchDemangle -VV
+    ctest -R DemangleTest.Bool -VV
+    ctest -R DemangleTest.* -VV
 
 .. note::
 

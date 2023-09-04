@@ -6,14 +6,10 @@
 // Modified by Jeremy Retailleau.
 
 #include <pxr/arch/threads.h>
-#include <pxr/arch/error.h>
+#include <gtest/gtest.h>
 
 using namespace pxr;
 
-int main()
-{
-    ARCH_AXIOM(ArchIsMainThread());
-
-    return 0;
+TEST(ThreadTest, IsMainThread) {
+    ASSERT_TRUE(ArchIsMainThread());
 }
-

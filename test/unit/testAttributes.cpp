@@ -6,9 +6,8 @@
 // Modified by Jeremy Retailleau.
 
 #include <pxr/arch/attributes.h>
-#include <pxr/arch/error.h>
+#include <gtest/gtest.h>
 
-#include <cstdio>
 #include <cstdlib>
 
 using namespace pxr;
@@ -52,7 +51,7 @@ static const Bits dependencies[NumOperations] = {
     /* Dtor20Op       */   BIT(Dtor30Op)
 };
 
-static void TestAndSet(Operation operation)
+static testing::AssertionResult IsOrderCorrect(Operation operation)
 {
     static const char binary[][5] = {
         "0000", "0001", "0010", "0011", "0100", "0101", "0110", "0111",
@@ -62,18 +61,20 @@ static void TestAndSet(Operation operation)
     // Check dependencies.
     const Bits deps = dependencies[operation];
     if ((done & deps) != deps) {
-        fprintf(stderr, "Failed on operation %d: %s%s%s%s expected %s%s%s%s\n",
-                operation,
-                binary[(done >> 12) & 15],
-                binary[(done >>  8) & 15],
-                binary[(done >>  4) & 15],
-                binary[(done      ) & 15],
-                binary[(deps >> 12) & 15],
-                binary[(deps >>  8) & 15],
-                binary[(deps >>  4) & 15],
-                binary[(deps      ) & 15]);
+        return testing::AssertionFailure()
+               << "Failed on operation " << operation << ": "
+               << binary[(done >> 12) & 15] << binary[(done >> 8) & 15]
+               << binary[(done >> 4) & 15] << binary[(done)&15] << " expected "
+               << binary[(deps >> 12) & 15] << binary[(deps >> 8) & 15]
+               << binary[(deps >> 4) & 15] << binary[(deps)&15];
     }
-    ARCH_AXIOM((done & deps) == deps);
+
+    return testing::AssertionSuccess() << "Order correct.";
+}
+
+static void TestAndSet(Operation operation)
+{
+    ASSERT_TRUE(IsOrderCorrect(operation));
     done |= BIT(operation);
 }
 

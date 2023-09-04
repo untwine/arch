@@ -6,13 +6,16 @@
 // Modified by Jeremy Retailleau.
 
 #include <pxr/arch/export.h>
-#include "./testArchAbi.h"
+#include <archTest/abi.h>
 
 
 using namespace pxr;
 
 extern "C" {
 
-ARCH_EXPORT ArchAbiBase2* newDerived() { return new ArchAbiDerived<int>; }
+ARCH_EXPORT ArchAbiBase2* newDerived()
+{
+    return new ArchAbiDerived<int>;
+}
 
 }

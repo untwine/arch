@@ -6,17 +6,15 @@
 // Modified by Jeremy Retailleau.
 
 #include <pxr/arch/vsnprintf.h>
-#include <pxr/arch/error.h>
+#include <gtest/gtest.h>
 
 #include <cstdlib>
-#include <iostream>
-#include <string.h>
+#include <string>
 
 using namespace pxr;
 
-using std::string;
-
-static int ArchSnprintf(char *str, size_t size, const char* fmt, ...) {
+static int Snprintf(char* str, size_t size, const char* fmt, ...)
+{
     int n;
     va_list ap;
     va_start(ap, fmt);
@@ -27,12 +25,12 @@ static int ArchSnprintf(char *str, size_t size, const char* fmt, ...) {
     return n;
 }
 
-int main()
+TEST(VsnprintfTest, Print)
 {
     char str[1] = "";
 
-    // ArchSnprintf should report 3 characters not written 
-    ARCH_AXIOM(ArchSnprintf(str, strlen(str), "   ") == 3);
+    // Snprintf should report 3 characters not written
+    ASSERT_EQ(Snprintf(str, strlen(str), "   "), 3);
 
     // ensure that a string longer than 4096 works
     // create a long format string
@@ -42,7 +40,5 @@ int main()
     }
     long_fmt[8191] = '\0';
 
-    ARCH_AXIOM(ArchStringPrintf("%s", long_fmt).size() == 8191);
-
-    return 0;
+    ASSERT_EQ(ArchStringPrintf("%s", long_fmt).size(), 8191);
 }

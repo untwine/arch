@@ -6,7 +6,7 @@
 // Modified by Jeremy Retailleau.
 
 #include <pxr/arch/symbols.h>
-#include <pxr/arch/error.h>
+#include <gtest/gtest.h>
 
 #include <cstdlib>
 
@@ -41,31 +41,29 @@ static std::string GetBasename(const std::string& path)
     return path;
 }
 
-int main()
+TEST(SymbolsTest, GetAddressInfo)
 {
     std::string path;
 
     // Invalid pointer.
-    ARCH_AXIOM(!_GetLibraryPath(0, &path));
+    ASSERT_FALSE(_GetLibraryPath(0, &path));
 
     // Pointer to a local non-function.
-    ARCH_AXIOM(!_GetLibraryPath(&path, &path));
+    ASSERT_FALSE(_GetLibraryPath(&path, &path));
 
     // Pointer into the DATA section.
-    ARCH_AXIOM(_GetLibraryPath(&data, &path));
-    ARCH_AXIOM(GetBasename(path) == "testArchSymbols");
+    ASSERT_TRUE(_GetLibraryPath(&data, &path));
+    ASSERT_EQ(GetBasename(path), "testArchSymbols");
 
     // Pointer into the BSS section.
-    ARCH_AXIOM(_GetLibraryPath(&bss, &path));
-    ARCH_AXIOM(GetBasename(path) == "testArchSymbols");
+    ASSERT_TRUE(_GetLibraryPath(&bss, &path));
+    ASSERT_EQ(GetBasename(path), "testArchSymbols");
 
     // Find this library.
-    ARCH_AXIOM(_GetLibraryPath((void*)&Code, &path));
-    ARCH_AXIOM(GetBasename(path) == "testArchSymbols");
+    ASSERT_TRUE(_GetLibraryPath((void*)&Code, &path));
+    ASSERT_EQ(GetBasename(path), "testArchSymbols");
 
     // Find another library.
-    ARCH_AXIOM(_GetLibraryPath((void*)&exit, &path));
-    ARCH_AXIOM(GetBasename(path) != "testArchSymbols");
-
-    return 0;
+    ASSERT_TRUE(_GetLibraryPath((void*)&exit, &path));
+    ASSERT_NE(GetBasename(path), "testArchSymbols");
 }

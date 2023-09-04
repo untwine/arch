@@ -1,9 +1,10 @@
-//
 // Copyright 2016 Pixar
 //
 // Licensed under the terms set forth in the LICENSE.txt file available at
 // https://openusd.org/license.
 //
+// Modified by Jeremy Retailleau.
+
 #ifndef PXR_ARCH_FUNCTION_LITE_H
 #define PXR_ARCH_FUNCTION_LITE_H
 

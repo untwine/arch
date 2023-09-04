@@ -1,9 +1,10 @@
-//
 // Copyright 2019 Pixar
 //
 // Licensed under the terms set forth in the LICENSE.txt file available at
 // https://openusd.org/license.
 //
+// Modified by Jeremy Retailleau.
+
 #ifndef PXR_ARCH_VIRTUAL_MEMORY_H
 #define PXR_ARCH_VIRTUAL_MEMORY_H
 

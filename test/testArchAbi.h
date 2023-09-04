@@ -1,13 +1,14 @@
-//
 // Copyright 2016 Pixar
 //
 // Licensed under the terms set forth in the LICENSE.txt file available at
 // https://openusd.org/license.
 //
+// Modified by Jeremy Retailleau.
+
 #ifndef PXR_ARCH_TEST_ARCH_ABI_H
 #define PXR_ARCH_TEST_ARCH_ABI_H
 
-#include "./api.h"
+#include <pxr/arch/api.h>
 
 namespace pxr {
 

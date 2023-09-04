@@ -1,15 +1,15 @@
-//
 // Copyright 2016 Pixar
 //
 // Licensed under the terms set forth in the LICENSE.txt file available at
 // https://openusd.org/license.
 //
+// Modified by Jeremy Retailleau.
 
 #include <pxr/arch/stackTrace.h>
 #include <pxr/arch/defines.h>
 #include <pxr/arch/error.h>
 #include <pxr/arch/fileSystem.h>
-#include <pxr/arch/testArchUtil.h>
+#include "./testArchUtil.h"
 
 #include <string>
 #include <cstdlib>

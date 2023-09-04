@@ -1,12 +1,13 @@
-//
 // Copyright 2017 Pixar
 //
 // Licensed under the terms set forth in the LICENSE.txt file available at
 // https://openusd.org/license.
 //
+// Modified by Jeremy Retailleau.
+
 #define _CRT_SECURE_NO_WARNINGS
 
-#include <pxr/arch/testArchUtil.h>
+#include "./testArchUtil.h"
 #include <pxr/arch/debugger.h>
 #include <pxr/arch/defines.h>
 #include <pxr/arch/error.h>

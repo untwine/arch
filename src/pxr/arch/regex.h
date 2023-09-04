@@ -1,9 +1,10 @@
-//
 // Copyright 2017 Pixar
 //
 // Licensed under the terms set forth in the LICENSE.txt file available at
 // https://openusd.org/license.
 //
+// Modified by Jeremy Retailleau.
+
 #ifndef PXR_ARCH_REGEX_H
 #define PXR_ARCH_REGEX_H
 
